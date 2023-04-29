@@ -4,8 +4,6 @@ const sanitize = require("sanitize-filename");
 const util = require("util");
 const writeFilePromise = util.promisify(fs.writeFile);
 
-console.log(process.env.MMR_AUTH_TOKEN, process.env.MMR_USER_ID);
-
 const API_URL = "https://mapmyride.api.ua.com";
 
 const get_rides = async (token, user_id) => {
