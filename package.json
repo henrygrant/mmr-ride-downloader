@@ -1,0 +1,16 @@
+{
+  "name": "bnb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-fetch download_rides.js",
+    "lint": "eslint --ext .js ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "sanitize-filename": "^1.6.3"
+  }
+}
