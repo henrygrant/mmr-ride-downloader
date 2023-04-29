@@ -24,6 +24,8 @@ const get_rides = async (token, user_id) => {
         },
       }
     );
+    if (!response.ok)
+      throw new Error(`Failed to get ride list! status: ${response.status}`);
     const result = await response.json();
     return result._embedded.routes;
   };
@@ -36,14 +38,16 @@ const get_rides = async (token, user_id) => {
   }
 
   rides.forEach(async (ride) => {
-    const res = await fetch(API_URL + ride._links.alternate[0].href, {
+    const response = await fetch(API_URL + ride._links.alternate[0].href, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         authorization: token,
       },
     });
-    const result = await res.arrayBuffer();
+    if (!response.ok)
+      throw new Error(`Failed to get ride file! status: ${response.status}`);
+    const result = await response.arrayBuffer();
     await writeFilePromise(
       `downloads/${sanitize(ride.name)}.kml`,
       Buffer.from(result)

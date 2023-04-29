@@ -13,4 +13,4 @@ MMR_USER_ID=123456
 
 To get the real values of these variables, log in to your MapMyRide account and check the request headers of any API call in the network tab of your browser's devtools.
 
-Then run `npm run start`
+Then run `npm start`
